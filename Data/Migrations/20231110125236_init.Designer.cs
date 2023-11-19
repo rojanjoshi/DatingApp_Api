@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DatingApp.Db.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231106053606_init")]
+    [Migration("20231110125236_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -25,7 +25,12 @@ namespace DatingApp.Db.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("UserName")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
